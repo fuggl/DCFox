@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dcfox.iml" filepath="$PROJECT_DIR$/dcfox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flux.iml" filepath="$PROJECT_DIR$/.idea/modules/flux.iml" group="flux" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flux/flux_main.iml" filepath="$PROJECT_DIR$/.idea/modules/flux/flux_main.iml" group="flux" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flux/flux_test.iml" filepath="$PROJECT_DIR$/.idea/modules/flux/flux_test.iml" group="flux" />
+    </modules>
+  </component>
+</project>
