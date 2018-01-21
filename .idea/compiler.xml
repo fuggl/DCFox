@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="flux_main" target="1.8" />
       <module name="flux_test" target="1.8" />
+      <module name="ui_main" target="1.8" />
+      <module name="ui_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
