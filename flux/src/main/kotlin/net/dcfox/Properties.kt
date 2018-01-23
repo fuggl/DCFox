@@ -2,10 +2,15 @@ package net.dcfox
 
 import javafx.beans.property.*
 
+private fun keyIsValid() {
+
+}
+
 class ReadOnlyBoolean(
-        private val bean_:  Any?    = null,
-        private val name_:  String  = "",
-        initialValue:       Boolean = false
+        private val bean_:      Any?        = null,
+        private val name_:      String      = "",
+        initialValue:           Boolean     = false,
+        private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyBooleanPropertyBase() {
 
     private var value: Boolean = initialValue
@@ -19,9 +24,10 @@ class ReadOnlyBoolean(
 }
 
 class ReadOnlyDouble(
-        private val bean_:  Any?    = null,
-        private val name_:  String  = "",
-        initialValue:       Double  = 0.0
+        private val bean_:      Any?        = null,
+        private val name_:      String      = "",
+        initialValue:           Double      = 0.0,
+        private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyDoublePropertyBase() {
 
     private var value: Double = initialValue
@@ -35,9 +41,10 @@ class ReadOnlyDouble(
 }
 
 class ReadOnlyFloat(
-        private val bean_:  Any?    = null,
-        private val name_:  String  = "",
-        initialValue:       Float   = 0.0F
+        private val bean_:      Any?        = null,
+        private val name_:      String      = "",
+        initialValue:           Float       = 0.0F,
+        private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyFloatPropertyBase() {
 
     private var value: Float = initialValue
@@ -51,9 +58,10 @@ class ReadOnlyFloat(
 }
 
 class ReadOnlyInteger(
-        private val bean_:  Any?    = null,
-        private val name_:  String  = "",
-        initialValue:       Int     = 0
+        private val bean_:      Any?        = null,
+        private val name_:      String      = "",
+        initialValue:           Int         = 0,
+        private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyIntegerPropertyBase() {
 
     private var value: Int = initialValue
@@ -68,9 +76,10 @@ class ReadOnlyInteger(
 }
 
 class ReadOnlyLong(
-        private val bean_:  Any?    = null,
-        private val name_:  String  = "",
-        initialValue:       Long    = 0
+        private val bean_:      Any?        = null,
+        private val name_:      String      = "",
+        initialValue:           Long        = 0,
+        private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyLongPropertyBase() {
 
     private var value: Long = initialValue
@@ -85,15 +94,18 @@ class ReadOnlyLong(
 }
 
 class ReadOnlyObject<T>(
-        private val bean_:  Any?    = null,
-        private val name_:  String  = "",
-        initialValue:       T?      = null
+        private val bean_:      Any?        = null,
+        private val name_:      String      = "",
+        initialValue:           T?          = null,
+        private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyObjectPropertyBase<T>() {
 
     private var obj: T? = initialValue
-    internal fun set(value: T) {
-        this.obj = value
-        fireValueChangedEvent()
+    internal fun set(value: T, key: AccessKey) {
+        if (accessKey.isAssociatedWith(key)) {
+            this.obj = value
+            fireValueChangedEvent()
+        }
     }
 
     override fun get(): T? = obj
@@ -102,9 +114,10 @@ class ReadOnlyObject<T>(
 }
 
 class ReadOnlyString(
-        private val bean_:  Any?    = null,
-        private val name_:  String  = "",
-        initialValue:       String  = ""
+        private val bean_:      Any?        = null,
+        private val name_:      String      = "",
+        initialValue:           String      = "",
+        private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyStringPropertyBase() {
 
     private var value_: String = initialValue
