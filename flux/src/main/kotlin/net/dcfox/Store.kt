@@ -1,15 +1,5 @@
 package net.dcfox
 
-sealed class AccessKey {
-    fun isAssociatedWith(otherKey: AccessKey): Boolean {
-        if (this !== otherKey) throw WriteAccessException()
-        return true
-    }
-    companion object NoKey : AccessKey()
-}
-
-class WriteAccessException(): Exception()
-
 open class Store(protected val accessKey: AccessKey = AccessKey.NoKey) {
     protected fun set(property: ReadOnlyBoolean, value: Boolean) {
         property.set(value, accessKey)
