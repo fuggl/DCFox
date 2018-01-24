@@ -2,10 +2,6 @@ package net.dcfox
 
 import javafx.beans.property.*
 
-private fun keyIsValid() {
-
-}
-
 class ReadOnlyBoolean(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
@@ -14,9 +10,11 @@ class ReadOnlyBoolean(
 ) : ReadOnlyBooleanPropertyBase() {
 
     private var value: Boolean = initialValue
-    internal fun set(value: Boolean) {
-        this.value = value
-        fireValueChangedEvent()
+    internal fun set(value: Boolean, key: AccessKey) {
+        if (accessKey.isAssociatedWith(key)) {
+            this.value = value
+            fireValueChangedEvent()
+        }
     }
     override fun get():     Boolean = value
     override fun getName(): String  = name_
@@ -31,9 +29,11 @@ class ReadOnlyDouble(
 ) : ReadOnlyDoublePropertyBase() {
 
     private var value: Double = initialValue
-    internal fun set(value: Double) {
-        this.value = value
-        fireValueChangedEvent()
+    internal fun set(value: Double, key: AccessKey) {
+        if (accessKey.isAssociatedWith(key)) {
+            this.value = value
+            fireValueChangedEvent()
+        }
     }
     override fun get():     Double  = value
     override fun getName(): String  = name_
@@ -48,9 +48,11 @@ class ReadOnlyFloat(
 ) : ReadOnlyFloatPropertyBase() {
 
     private var value: Float = initialValue
-    internal fun set(value: Float) {
-        this.value = value
-        fireValueChangedEvent()
+    internal fun set(value: Float, key: AccessKey) {
+        if (accessKey.isAssociatedWith(key)) {
+            this.value = value
+            fireValueChangedEvent()
+        }
     }
     override fun get():     Float   = value
     override fun getName(): String  = name_
@@ -65,9 +67,11 @@ class ReadOnlyInteger(
 ) : ReadOnlyIntegerPropertyBase() {
 
     private var value: Int = initialValue
-    internal fun set(value: Int) {
-        this.value = value
-        fireValueChangedEvent()
+    internal fun set(value: Int, key: AccessKey) {
+        if (accessKey.isAssociatedWith(key)) {
+            this.value = value
+            fireValueChangedEvent()
+        }
     }
     override fun get():     Int     = value
     override fun getName(): String  = name_
@@ -83,9 +87,11 @@ class ReadOnlyLong(
 ) : ReadOnlyLongPropertyBase() {
 
     private var value: Long = initialValue
-    internal fun set(value: Long) {
-        this.value = value
-        fireValueChangedEvent()
+    internal fun set(value: Long, key: AccessKey) {
+        if (accessKey.isAssociatedWith(key)) {
+            this.value = value
+            fireValueChangedEvent()
+        }
     }
     override fun get():     Long    = value
     override fun getName(): String  = name_
@@ -120,12 +126,14 @@ class ReadOnlyString(
         private val accessKey:  AccessKey   = AccessKey.NoKey
 ) : ReadOnlyStringPropertyBase() {
 
-    private var value_: String = initialValue
-    internal fun set(value: String) {
-        this.value_ = value
-        fireValueChangedEvent()
+    private var roValue: String = initialValue
+    internal fun set(value: String, key: AccessKey) {
+        if (accessKey.isAssociatedWith(key)) {
+            this.roValue = value
+            fireValueChangedEvent()
+        }
     }
-    override fun get():     String  = value_
+    override fun get():     String  = roValue
     override fun getName(): String  = name_
     override fun getBean(): Any?    = bean_
 
