@@ -1,6 +1,6 @@
-package net.dcfox
+package net.dcfox.flux
 
-open class Store(protected val accessKey: AccessKey = AccessKey.NoKey) {
+open class Store(protected val accessKey: AccessKey = AccessKey) {
     protected fun set(property: ReadOnlyBoolean, value: Boolean) {
         property.set(value, accessKey)
     }

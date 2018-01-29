@@ -1,4 +1,4 @@
-package net.dcfox
+package net.dcfox.flux
 
 import javafx.beans.property.*
 
@@ -6,7 +6,7 @@ class ReadOnlyBoolean(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
         initialValue:           Boolean     = false,
-        private val accessKey:  AccessKey   = AccessKey.NoKey
+        private val accessKey: AccessKey = AccessKey
 ) : ReadOnlyBooleanPropertyBase() {
 
     private var value: Boolean = initialValue
@@ -25,7 +25,7 @@ class ReadOnlyDouble(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
         initialValue:           Double      = 0.0,
-        private val accessKey:  AccessKey   = AccessKey.NoKey
+        private val accessKey: AccessKey = AccessKey
 ) : ReadOnlyDoublePropertyBase() {
 
     private var value: Double = initialValue
@@ -44,7 +44,7 @@ class ReadOnlyFloat(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
         initialValue:           Float       = 0.0F,
-        private val accessKey:  AccessKey   = AccessKey.NoKey
+        private val accessKey: AccessKey = AccessKey
 ) : ReadOnlyFloatPropertyBase() {
 
     private var value: Float = initialValue
@@ -63,7 +63,7 @@ class ReadOnlyInteger(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
         initialValue:           Int         = 0,
-        private val accessKey:  AccessKey   = AccessKey.NoKey
+        private val accessKey: AccessKey = AccessKey
 ) : ReadOnlyIntegerPropertyBase() {
 
     private var value: Int = initialValue
@@ -83,7 +83,7 @@ class ReadOnlyLong(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
         initialValue:           Long        = 0,
-        private val accessKey:  AccessKey   = AccessKey.NoKey
+        private val accessKey: AccessKey = AccessKey
 ) : ReadOnlyLongPropertyBase() {
 
     private var value: Long = initialValue
@@ -103,7 +103,7 @@ class ReadOnlyObject<T>(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
         initialValue:           T?          = null,
-        private val accessKey:  AccessKey   = AccessKey.NoKey
+        private val accessKey: AccessKey = AccessKey
 ) : ReadOnlyObjectPropertyBase<T>() {
 
     private var obj: T? = initialValue
@@ -123,7 +123,7 @@ class ReadOnlyString(
         private val bean_:      Any?        = null,
         private val name_:      String      = "",
         initialValue:           String      = "",
-        private val accessKey:  AccessKey   = AccessKey.NoKey
+        private val accessKey: AccessKey = AccessKey
 ) : ReadOnlyStringPropertyBase() {
 
     private var roValue: String = initialValue

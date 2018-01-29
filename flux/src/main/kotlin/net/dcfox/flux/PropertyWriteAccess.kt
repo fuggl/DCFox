@@ -1,4 +1,4 @@
-package net.dcfox
+package net.dcfox.flux
 
 sealed class AccessKey {
     fun isAssociatedWith(otherKey: AccessKey): Boolean {
