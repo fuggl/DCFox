@@ -1,11 +1,17 @@
 package net.dcfox.ui
 
-import javafx.scene.Parent
-import javafx.scene.layout.BorderPane
 import tornadofx.*
 
 class MainView: View() {
     override val root = borderpane {
-
+        //top( alarm bar )
+        center {
+            borderpane {
+                //top( tool bar )
+                //left( navigation area )
+                //center( main display area )
+                //bottom( status bar )
+            }
+        }
     }
 }
